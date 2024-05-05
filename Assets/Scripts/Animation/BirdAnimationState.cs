@@ -1,5 +1,5 @@
-using AYellowpaper;
 using UnityEngine;
+using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
 public class BirdAnimationState : MonoBehaviour
@@ -14,7 +14,7 @@ public class BirdAnimationState : MonoBehaviour
         MoverEvents.Fluttered += SetFlutterParameter;
 
     private void OnDisable() =>
-        MoverEvents.Fluttered += SetFlutterParameter;
+        MoverEvents.Fluttered -= SetFlutterParameter;
 
     private void Start() =>
         _animator = GetComponent<Animator>();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Pool;
@@ -13,6 +14,8 @@ public class Gun : MonoBehaviour
     private Transform _transform;
     private Coroutine _coroutine;
     private ObjectsPool<Bullet> _pool;
+
+    public event Action Shooted;
 
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class Gun : MonoBehaviour
         {
             _pool.PutOutEntity();
             _coroutine = StartCoroutine(WaitBeforeShoot(delay));
+            Shooted?.Invoke();
         }
     }
 
