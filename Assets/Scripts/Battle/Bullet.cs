@@ -7,8 +7,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField, Min(0)] private float _speed;
 
+    [SerializeField] private BulletCollisionEventsHandler _handler;
+
     private Transform _transform;
     private Coroutine _coroutine;
+
+    public BulletCollisionEventsHandler Handler => _handler;
 
     private void OnEnable() =>
         _transform = transform;
