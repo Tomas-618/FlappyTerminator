@@ -1828,6 +1828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 735981395}
+  - component: {fileID: 735981396}
   m_Layer: 5
   m_Name: BirdHeartsInfo
   m_TagString: Untagged
@@ -1857,6 +1858,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &735981396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735981394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0400d88c8467c4fb0d54d3e005baa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heartsEvents:
+    _underlyingValue: {fileID: 196928802}
+  _view: {fileID: 760998350}
+  _standartText: ' hp'
 --- !u!1 &760998348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,9 +1932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3 HP
-
-'
+  m_text: 3 hp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d64f91effbf726f46b20df69967edfa3, type: 2}
   m_sharedMaterial: {fileID: -4052828364923142110, guid: d64f91effbf726f46b20df69967edfa3, type: 2}
