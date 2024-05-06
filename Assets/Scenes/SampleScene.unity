@@ -3388,6 +3388,7 @@ GameObject:
   - component: {fileID: 1332481290}
   - component: {fileID: 1332481289}
   - component: {fileID: 1332481291}
+  - component: {fileID: 1332481292}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3474,6 +3475,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1332481292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332481287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcb4fa71f054c24c8eb01130d25b218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heartsEvents:
+    _underlyingValue: {fileID: 196928802}
 --- !u!1 &1360548438
 GameObject:
   m_ObjectHideFlags: 0
