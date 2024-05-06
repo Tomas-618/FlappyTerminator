@@ -7,6 +7,8 @@ public class Hearts : MonoBehaviour, IKillable, IReadOnlyHeartsEvents
 
     private int _count;
 
+    public event Action<int> Damaged;
+
     public event Action Died;
 
     private void Start() =>
@@ -22,7 +24,13 @@ public class Hearts : MonoBehaviour, IKillable, IReadOnlyHeartsEvents
     {
         _count = Mathf.Clamp(count, 0, _initialCount);
 
-        if (_count <= 0)
-            Died?.Invoke();
+        if (_count > 0)
+        {
+            Damaged?.Invoke(_count);
+
+            return;
+        }
+        
+        Died?.Invoke();
     }
 }
