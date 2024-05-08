@@ -16,6 +16,9 @@ public class HeartsUIText : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_heartsEvents.Value == null)
+            return;
+
         _heartsEvents.Value.Damaged -= ChangeHPValue;
         _heartsEvents.Value.Died -= SetHPValueOnDie;
     }

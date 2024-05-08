@@ -19,6 +19,9 @@ public class BirdHeartsImageUIAnimationState : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_heartsEvents.Value == null)
+            return;
+
         _heartsEvents.Value.Damaged -= SetDamageParameter;
         _heartsEvents.Value.Died -= SetDieParameter;
     }
