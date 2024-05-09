@@ -16,7 +16,7 @@ public class BulletCollisionEventsHandler : MonoBehaviour
 
     private void CheckCollider(Component component)
     {
-        if (component.GetComponent<Zone>() || component.GetComponent<Bird>())
+        if (component.GetComponent<Zone>() || component.GetComponent<Bird>() || component.GetComponent<Robot>())
             Hitted?.Invoke(_mediator.BulletInfo);
     }
 }
