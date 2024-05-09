@@ -3668,14 +3668,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e5b81979931c24495d55e4c0364fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flutterClipVolume: 0
-  _damageClipVolume: 0
+  _flutterClipVolume: 1
+  _damageClipVolume: 0.4
   _moverEvents:
-    _underlyingValue: {fileID: 0}
+    _underlyingValue: {fileID: 196928801}
   _heartsEvents:
-    _underlyingValue: {fileID: 0}
+    _underlyingValue: {fileID: 196928802}
   _flutterClip: {fileID: 8300000, guid: 19be3a0849d1b1844bc583185de1268e, type: 3}
-  _damageClip: {fileID: 0}
+  _damageClip: {fileID: 8300000, guid: 699a54acde77c6e498310a7554cd276a, type: 3}
 --- !u!81 &1142543388
 AudioListener:
   m_ObjectHideFlags: 0
