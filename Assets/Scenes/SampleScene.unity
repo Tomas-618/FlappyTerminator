@@ -4790,7 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flutterClipVolume: 1
-  _damageClipVolume: 0
+  _damageClipVolume: 0.4
   _moverEvents:
     _underlyingValue: {fileID: 196928801}
   _heartsEvents:
