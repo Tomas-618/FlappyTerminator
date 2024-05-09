@@ -260,7 +260,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1151,6 +1151,8 @@ GameObject:
   - component: {fileID: 196928802}
   - component: {fileID: 196928805}
   - component: {fileID: 196928804}
+  - component: {fileID: 196928806}
+  - component: {fileID: 196928807}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -1305,6 +1307,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1003ec9d8ef0341ab98eb0bd209e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &196928806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196928797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c7615df41835d4ebc12404f9a41b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+    _underlyingValue: {fileID: 196928802}
+  _explodeEffectSpawner: {fileID: 196928807}
+  _gun: {fileID: 887167537}
+  _sounds: {fileID: 1142543387}
+--- !u!114 &196928807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196928797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e129c39951608d549b8c240fc8b4e250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 6881517417321530153, guid: a3286a688f3a14140a695643e814a980, type: 3}
 --- !u!1 &365809248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583618387}
   - component: {fileID: 583618388}
+  - component: {fileID: 583618389}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -1727,6 +1760,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &583618389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583618386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d11637a8c94cd74fa9001e99ca736e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heartsEvents:
+    _underlyingValue: {fileID: 196928802}
 --- !u!1 &602091223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,10 +1998,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
+  m_fontSize: 29.5
   m_fontSizeBase: 42
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2319,6 +2366,8 @@ GameObject:
   - component: {fileID: 887167536}
   - component: {fileID: 887167535}
   - component: {fileID: 887167537}
+  - component: {fileID: 887167538}
+  - component: {fileID: 887167539}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -2411,6 +2460,41 @@ MonoBehaviour:
   _maxBulletsCount: 6
   _muzzle: {fileID: 1306652315}
   _bulletsFabric: {fileID: 1681401654}
+--- !u!95 &887167538
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887167534}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ac9bccbc4721f340952fd20981ba6b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &887167539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887167534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808818148d4793742a2009eca77ae0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heartsEvents:
+    _underlyingValue: {fileID: 196928802}
 --- !u!1 &893786946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3464,7 @@ GameObject:
   - component: {fileID: 1277045573}
   - component: {fileID: 1277045572}
   - component: {fileID: 1277045571}
+  - component: {fileID: 1277045574}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -3490,6 +3575,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277045569}
   m_CullTransparentMesh: 1
+--- !u!114 &1277045574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277045569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a12c9c2ad46d04eb29b806fe6e18a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306652314
 GameObject:
   m_ObjectHideFlags: 0

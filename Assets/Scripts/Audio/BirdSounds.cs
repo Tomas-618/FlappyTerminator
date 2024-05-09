@@ -12,8 +12,13 @@ public class BirdSounds : MonoBehaviour
     private void OnEnable() =>
         _events.Value.Fluttered += PlayOnFlutter;
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
+        if (_events.Value == null)
+            return;
+
         _events.Value.Fluttered -= PlayOnFlutter;
+    }
 
     private void Start() =>
         _source = GetComponent<AudioSource>();
