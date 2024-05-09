@@ -1,17 +1,18 @@
 using UnityEngine;
+using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
 public class ShootingExplosionAnimationState : MonoBehaviour
 {
+    [SerializeField] private InterfaceReference<IReadOnlyGunEvents, MonoBehaviour> _gunEvents;
+
     private Animator _animator;
 
-    [SerializeField] private Gun _gun;
-
     private void OnEnable() =>
-        _gun.Shooted += SetTrigger;
+        _gunEvents.Value.Shooted += SetTrigger;
 
     private void OnDisable() =>
-        _gun.Shooted += SetTrigger;
+        _gunEvents.Value.Shooted += SetTrigger;
 
     private void Start() =>
         _animator = GetComponent<Animator>();

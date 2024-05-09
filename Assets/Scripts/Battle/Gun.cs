@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Pool;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
 {
     [SerializeField, Min(0)] private float _shootingDelay;
     [SerializeField, Min(0)] private int _maxBulletsCount;
@@ -11,17 +11,14 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform _muzzle;
     [SerializeField] private BulletsFabric _bulletsFabric;
 
-    private Transform _transform;
-    private Coroutine _coroutine;
     private ObjectsPool<Bullet> _pool;
+    private Coroutine _coroutine;
+    private Vector2 _direction;
 
     public event Action Shooted;
 
-    private void Awake()
-    {
-        _transform = transform;
+    private void Awake() =>
         _pool = new ObjectsPool<Bullet>(_bulletsFabric.Create, _maxBulletsCount);
-    }
 
     private void OnEnable()
     {
@@ -43,24 +40,23 @@ public class Gun : MonoBehaviour
         _pool.Removed -= bullet => Destroy(bullet.gameObject);
     }
 
-    private void Update() =>
-        Shoot(_shootingDelay);
-
-    private void Shoot(in float delay)
+    public void Shoot(in Vector2 direction)
     {
-        if (Input.GetKeyDown(KeyCode.F) && _coroutine == null)
-        {
-            _pool.PutOutEntity();
-            _coroutine = StartCoroutine(WaitBeforeShoot(delay));
-            Shooted?.Invoke();
-        }
+        if (_coroutine != null)
+            return;
+
+        _direction = direction;
+        _pool.PutOutEntity();
+
+        _coroutine = StartCoroutine(WaitBeforeShoot(_shootingDelay));
+        Shooted?.Invoke();
     }
 
     private void ReleaseBullet(Bullet bullet)
     {
         bullet.transform.position = _muzzle.position;
         bullet.gameObject.SetActive(true);
-        bullet.SetDirection(_transform.right);
+        bullet.SetDirection(_direction);
     }
 
     private IEnumerator WaitBeforeShoot(float delay)

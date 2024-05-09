@@ -1,18 +1,19 @@
 using UnityEngine;
+using AYellowpaper;
 
 [RequireComponent(typeof(AudioSource))]
 public class GunSounds : MonoBehaviour
 {
-    [SerializeField] private Gun _entity;
+    [SerializeField] private InterfaceReference<IReadOnlyGunEvents, MonoBehaviour> _events;
     [SerializeField] private AudioClip _shootingClip;
 
     private AudioSource _source;
 
     private void OnEnable() =>
-        _entity.Shooted += PlayOnShoot;
+        _events.Value.Shooted += PlayOnShoot;
 
     private void OnDisable() =>
-        _entity.Shooted -= PlayOnShoot;
+        _events.Value.Shooted -= PlayOnShoot;
 
     private void Start() =>
         _source = GetComponent<AudioSource>();
