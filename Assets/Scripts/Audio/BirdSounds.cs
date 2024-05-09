@@ -1,14 +1,24 @@
 using UnityEngine;
 using AYellowpaper;
 
+[RequireComponent(typeof(AudioSource))]
 public class BirdSounds : MonoBehaviour
 {
+    [SerializeField, Range(0, 1)] private float _flutterClipVolume;
+    [SerializeField, Range(0, 1)] private float _damageClipVolume;
+
     [SerializeField] private InterfaceReference<IReadOnlyBirdMoverEvents, MonoBehaviour> _moverEvents;
     [SerializeField] private InterfaceReference<IReadOnlyHeartsEvents, MonoBehaviour> _heartsEvents;
     [SerializeField] private AudioClip _flutterClip;
     [SerializeField] private AudioClip _damageClip;
-    [SerializeField] private AudioSource _flutterAudioSource;
-    [SerializeField] private AudioSource _damageAudioSource;
+
+    private AudioSource _source;
+
+    private void Reset()
+    {
+        _flutterClipVolume = 1;
+        _damageClipVolume = 0.4f;
+    }
 
     private void OnEnable()
     {
@@ -24,15 +34,18 @@ public class BirdSounds : MonoBehaviour
         _moverEvents.Value.Fluttered -= PlayOnFlutter;
     }
 
+    private void Start() =>
+        _source = GetComponent<AudioSource>();
+
     private void PlayOnFlutter() =>
-        PlayClip(_flutterAudioSource, _flutterClip);
+        PlayClip(_flutterClip, _flutterClipVolume);
 
     private void PlayOnTakingDamage(int count) =>
-        PlayClip(_damageAudioSource, _damageClip);
+        PlayClip(_damageClip, _damageClipVolume);
 
-    private void PlayClip(AudioSource source, AudioClip clip)
+    private void PlayClip(AudioClip clip, float volume)
     {
-        source.clip = clip;
-        source.Play();
+        _source.clip = clip;
+        _source.PlayOneShot(clip, volume);
     }
 }
