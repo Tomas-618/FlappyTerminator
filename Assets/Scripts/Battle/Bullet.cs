@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IReadOnlyBullet
 {
     private readonly float _speedCoefficient = 0.01f;
 
     [SerializeField, Min(0)] private float _speed;
+    [SerializeField, Min(0)] private float _damage;
 
     [SerializeField] private BulletCollisionEventsHandler _handler;
 
@@ -13,6 +14,8 @@ public class Bullet : MonoBehaviour
     private Coroutine _coroutine;
 
     public BulletCollisionEventsHandler Handler => _handler;
+
+    public float Damage => _damage;
 
     private void OnEnable() =>
         _transform = transform;

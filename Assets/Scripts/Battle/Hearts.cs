@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Hearts : MonoBehaviour, IKillable, IReadOnlyHeartsEvents
+public class Hearts : MonoBehaviour, IKillable, IReadOnlyHeartsEvents, IDamagable
 {
     [SerializeField, Min(1)] private int _initialCount;
 
