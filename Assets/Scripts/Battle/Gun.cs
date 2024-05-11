@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
     [SerializeField, Min(0)] private int _maxBulletsCount;
 
     [SerializeField] private Transform _muzzle;
-    [SerializeField] private Fabric _bulletsFabric;
+    [SerializeField] private Fabric<Bullet> _bulletsFabric;
 
     private ObjectsPool<Bullet> _pool;
     private Coroutine _coroutine;

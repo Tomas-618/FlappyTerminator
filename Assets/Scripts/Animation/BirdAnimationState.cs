@@ -1,6 +1,6 @@
+using System.Collections;
 using UnityEngine;
 using AYellowpaper;
-using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 public class BirdAnimationState : MonoBehaviour

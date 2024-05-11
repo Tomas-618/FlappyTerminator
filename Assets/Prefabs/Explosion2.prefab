@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &14824892328851763
 Transform:
   m_ObjectHideFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8246467181287686357
 SpriteRenderer:
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e51ac962c67024bb06fbcb660efb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifeTime: 0.26
 --- !u!95 &2270108781975797302
 Animator:
   serializedVersion: 5

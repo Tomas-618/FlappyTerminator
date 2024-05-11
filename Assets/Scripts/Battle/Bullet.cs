@@ -20,6 +20,9 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
     private void OnEnable() =>
         _transform = transform;
 
+    public void Init(ExplosionEffectsPool explosionEffects) =>
+        Handler.Init(explosionEffects);
+
     public void SetDirection(in Vector2 direction)
     {
         Vector2 move = _speedCoefficient * _speed * direction.normalized;
