@@ -25,14 +25,14 @@ public class BulletCollisionEventsHandler : MonoBehaviour
 
     private void CheckCollider(Component component)
     {
+        if (component.GetComponent<Bullet>())
+            return;
+
+        Hitted?.Invoke(_mediator.BulletInfo);
+
         if (component.GetComponent<Zone>())
-        {
-            Hitted?.Invoke(_mediator.BulletInfo);
-        }
-        else if (component.GetComponent<Bird>() || component.GetComponent<Robot>())
-        {
-            _explosionEffects.PutOutInPosition(_transform.position);
-            Hitted?.Invoke(_mediator.BulletInfo);
-        }
+            return;
+
+        _explosionEffects.PutOutInPosition(_transform.position);
     }
 }
