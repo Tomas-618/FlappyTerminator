@@ -482,7 +482,7 @@ Transform:
   - {fileID: 9111628576361447414}
   - {fileID: 8164864877331346971}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5651459375291303100
 BoxCollider2D:
@@ -1005,7 +1005,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1230443503076231041, guid: 15d4f22a54b88fe45be8b0861bb7f342, type: 2}
   m_audioClip: {fileID: 8300000, guid: 002b9721a2749e24094e31d5745690f6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1371,6 +1371,8 @@ GameObject:
   - component: {fileID: 7211150795161081503}
   - component: {fileID: 1127168242923118035}
   - component: {fileID: 6891162215435152038}
+  - component: {fileID: 5828187242283080589}
+  - component: {fileID: 2352384369121158501}
   m_Layer: 0
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -1468,6 +1470,34 @@ MonoBehaviour:
   _changingDeltaValue: 0.1
   _events:
     _underlyingValue: {fileID: 8685988758908101701}
+--- !u!225 &5828187242283080589
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883256158897758809}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2352384369121158501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883256158897758809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494a9635a813ddb4387549944d75af4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _changingDeltaValue: 0.01
+  _events:
+    _underlyingValue: {fileID: 4109471547668605324}
+  _canvasGroup: {fileID: 5828187242283080589}
 --- !u!1 &8090789547591529356
 GameObject:
   m_ObjectHideFlags: 0

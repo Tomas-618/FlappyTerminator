@@ -16,9 +16,11 @@ public class BirdDieEventHandler : MonoBehaviour
 
     private void Die()
     {
-        Transform gunTransform = _input.transform;
+        Transform gunTransform = _input.GunInfo.transform;
 
+        _input.GunInfo.ClearPool();
         _input.enabled = false;
+
         gunTransform.SetParent(null);
         gunTransform.rotation = Quaternion.identity;
 

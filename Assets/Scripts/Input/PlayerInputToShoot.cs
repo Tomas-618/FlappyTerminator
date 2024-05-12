@@ -6,6 +6,8 @@ public class PlayerInputToShoot : MonoBehaviour
 
     private Transform _gunTransform;
 
+    public Gun GunInfo => _gun;
+
     private void Start() =>
         _gunTransform = _gun.transform;
 

@@ -20,6 +20,9 @@ public class BulletCollisionEventsHandler : MonoBehaviour
     private void OnDisable() =>
         _collision.CollisionDetected -= CheckCollider;
 
+    private void OnDestroy() =>
+        ExplodeInPosition(_transform.position);
+
     public void Init(ExplosionEffectsPool explosionEffects) =>
         _explosionEffects = explosionEffects ?? throw new ArgumentNullException(nameof(explosionEffects));
 
@@ -33,6 +36,9 @@ public class BulletCollisionEventsHandler : MonoBehaviour
         if (component.GetComponent<Zone>())
             return;
 
-        _explosionEffects.PutOutInPosition(_transform.position);
+        ExplodeInPosition(_transform.position);
     }
+
+    private void ExplodeInPosition(in Vector2 point) =>
+        _explosionEffects.PutOutInPosition(point);
 }

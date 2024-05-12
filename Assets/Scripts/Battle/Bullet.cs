@@ -40,6 +40,9 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
         _coroutine = StartCoroutine(Move(move));
     }
 
+    public void DestroyObject() =>
+        Destroy(gameObject);
+
     private IEnumerator Move(Vector2 move)
     {
         while (enabled)
