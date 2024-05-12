@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
     private readonly float _speedCoefficient = 0.01f;
 
     [SerializeField, Min(0)] private float _speed;
-    [SerializeField, Min(0)] private float _damage;
+    [SerializeField, Min(0)] private float _minDamage;
+    [SerializeField, Min(0)] private float _maxDamage;
 
     [SerializeField] private BulletCollisionEventsHandler _handler;
 
@@ -15,9 +16,15 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
 
     public BulletCollisionEventsHandler Handler => _handler;
 
-    public float Damage => _damage;
+    public float Damage => Random.Range(_minDamage, _maxDamage);
 
-    private void OnEnable() =>
+    private void OnValidate()
+    {
+        if (_minDamage >= _maxDamage)
+            _minDamage = _maxDamage - 1;
+    }
+
+    private void Awake() =>
         _transform = transform;
 
     public void Init(ExplosionEffectsPool explosionEffects) =>
