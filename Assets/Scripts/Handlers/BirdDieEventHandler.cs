@@ -5,7 +5,7 @@ public class BirdDieEventHandler : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHeartsEvents, MonoBehaviour> _events;
     [SerializeField] private ExplodeEffectSpawner _explodeEffectSpawner;
-    [SerializeField] private Gun _gun;
+    [SerializeField] private PlayerInputToShoot _input;
     [SerializeField] private BirdSounds _sounds;
 
     private void OnEnable() =>
@@ -16,9 +16,9 @@ public class BirdDieEventHandler : MonoBehaviour
 
     private void Die()
     {
-        Transform gunTransform = _gun.transform;
+        Transform gunTransform = _input.transform;
 
-        _gun.enabled = false;
+        _input.enabled = false;
         gunTransform.SetParent(null);
         gunTransform.rotation = Quaternion.identity;
 

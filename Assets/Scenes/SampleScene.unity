@@ -1322,7 +1322,7 @@ MonoBehaviour:
   _events:
     _underlyingValue: {fileID: 196928802}
   _explodeEffectSpawner: {fileID: 196928807}
-  _gun: {fileID: 887167537}
+  _input: {fileID: 887167540}
   _sounds: {fileID: 1142543387}
 --- !u!114 &196928807
 MonoBehaviour:
