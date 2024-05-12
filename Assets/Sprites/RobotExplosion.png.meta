@@ -1,0 +1,406 @@
+fileFormatVersion: 2
+guid: 5223179ccddab8e4a90adab2bb0fe4bc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RobotExplosion_8
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 716
+        width: 77
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97a3a175fa3b1a418e603f0c75c012c
+      internalID: -21426680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_17
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 616
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5e23b582653684497fb0e0e1c39678
+      internalID: 1484977570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_32
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 522
+        width: 92
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411355acea7c1a2439ce1f7423a7dddc
+      internalID: 1611495375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_37
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 432
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e663958baecdabd4c834ce9efc283c9a
+      internalID: -393370097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_46
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 349
+        width: 71
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2978a5a983b371e48a5406a2edafa472
+      internalID: -1348908220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_55
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 262
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f976d494ce0ec8748ad424f247ce3a08
+      internalID: -1690426005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_0
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 176
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d3999f57607b248b632228425804e6
+      internalID: -350777814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_1
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 90
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8bc87cc3f8ed0440a5060b87289f54e
+      internalID: -83339392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotExplosion_2
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 38
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea25fef07fefc04cbecac28687d9600
+      internalID: 1772466769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      RobotExplosion_0: -350777814
+      RobotExplosion_1: -83339392
+      RobotExplosion_10: 124295187
+      RobotExplosion_11: 597737470
+      RobotExplosion_12: -1902262912
+      RobotExplosion_13: 1410053313
+      RobotExplosion_14: 1539916541
+      RobotExplosion_15: 1843247468
+      RobotExplosion_16: -13424231
+      RobotExplosion_17: 1484977570
+      RobotExplosion_18: -4349485
+      RobotExplosion_19: -672723557
+      RobotExplosion_2: 1772466769
+      RobotExplosion_20: -331655366
+      RobotExplosion_21: 487274122
+      RobotExplosion_22: 1327623040
+      RobotExplosion_23: 725103059
+      RobotExplosion_24: 104641304
+      RobotExplosion_25: -1997685085
+      RobotExplosion_26: 371030890
+      RobotExplosion_27: -1877803546
+      RobotExplosion_28: -153845715
+      RobotExplosion_29: 1449057133
+      RobotExplosion_3: -576056261
+      RobotExplosion_30: -1535266777
+      RobotExplosion_31: 443943090
+      RobotExplosion_32: 1611495375
+      RobotExplosion_33: -1678868331
+      RobotExplosion_34: 939282059
+      RobotExplosion_35: 1155705618
+      RobotExplosion_36: -1638704160
+      RobotExplosion_37: -393370097
+      RobotExplosion_38: 1224697713
+      RobotExplosion_39: -1041626266
+      RobotExplosion_4: 1203846422
+      RobotExplosion_40: 656388259
+      RobotExplosion_41: -1804928360
+      RobotExplosion_42: -1133524380
+      RobotExplosion_43: 1208057143
+      RobotExplosion_44: -187331536
+      RobotExplosion_45: 1123475300
+      RobotExplosion_46: -1348908220
+      RobotExplosion_47: -2130306841
+      RobotExplosion_48: -787410997
+      RobotExplosion_49: -1792515784
+      RobotExplosion_5: -1427676525
+      RobotExplosion_50: 471025630
+      RobotExplosion_51: 738122518
+      RobotExplosion_52: -1799375064
+      RobotExplosion_53: -1621919330
+      RobotExplosion_54: 1012959918
+      RobotExplosion_55: -1690426005
+      RobotExplosion_56: -1305807476
+      RobotExplosion_57: 1398961147
+      RobotExplosion_58: 229903850
+      RobotExplosion_59: -1449086223
+      RobotExplosion_6: 1105417928
+      RobotExplosion_60: 340744044
+      RobotExplosion_61: -423293664
+      RobotExplosion_62: -1162072977
+      RobotExplosion_63: 1211068223
+      RobotExplosion_64: -517622865
+      RobotExplosion_65: -1585824123
+      RobotExplosion_66: 653907015
+      RobotExplosion_67: 317566077
+      RobotExplosion_68: 640523299
+      RobotExplosion_69: -1678414304
+      RobotExplosion_7: -1383567252
+      RobotExplosion_70: 1543026284
+      RobotExplosion_71: -1459055184
+      RobotExplosion_72: 740276920
+      RobotExplosion_73: -1301101171
+      RobotExplosion_74: -719875252
+      RobotExplosion_75: 727625404
+      RobotExplosion_76: -1630332443
+      RobotExplosion_77: 911634362
+      RobotExplosion_78: -1057008201
+      RobotExplosion_79: -175359938
+      RobotExplosion_8: -21426680
+      RobotExplosion_80: 1849368980
+      RobotExplosion_81: 828229103
+      RobotExplosion_82: -393725963
+      RobotExplosion_83: 1831276288
+      RobotExplosion_84: 701479809
+      RobotExplosion_85: 1643537204
+      RobotExplosion_86: -943931782
+      RobotExplosion_87: 903711314
+      RobotExplosion_88: -248502745
+      RobotExplosion_89: -1430890537
+      RobotExplosion_9: 1706174235
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -482,7 +482,7 @@ Transform:
   - {fileID: 9111628576361447414}
   - {fileID: 8164864877331346971}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5651459375291303100
 BoxCollider2D:
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 5568593430370962825}
   - component: {fileID: 5322706681672486901}
   m_Layer: 0
-  m_Name: Renderer
+  m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

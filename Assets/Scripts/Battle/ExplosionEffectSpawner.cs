@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExplodeEffectSpawner : MonoBehaviour
+public class ExplosionEffectSpawner : MonoBehaviour
 {
     [SerializeField] private Explosion _explosion;
 
