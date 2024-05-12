@@ -4,9 +4,14 @@ using UnityEngine;
 public class BirdDieEventHandler : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHeartsEvents, MonoBehaviour> _events;
-    [SerializeField] private ExplosionEffectSpawner _explosionEffectSpawner;
+    [SerializeField] private Fabric<Explosion> _explosionEffectsFabric;
     [SerializeField] private PlayerInputToShoot _input;
     [SerializeField] private BirdSounds _sounds;
+
+    private Transform _transform;
+
+    private void Awake() =>
+        _transform = transform;
 
     private void OnEnable() =>
         _events.Value.Died += Die;
@@ -18,14 +23,18 @@ public class BirdDieEventHandler : MonoBehaviour
     {
         Transform gunTransform = _input.GunInfo.transform;
 
-        _input.GunInfo.ClearPool();
+        Explosion explosion = _explosionEffectsFabric.Create();
+
         _input.enabled = false;
+        _input.GunInfo.ClearPool();
 
         gunTransform.SetParent(null);
         gunTransform.rotation = Quaternion.identity;
 
+        explosion.transform.position = _transform.position;
+        explosion.gameObject.SetActive(true);
+
         _sounds.transform.SetParent(null);
-        _explosionEffectSpawner.Spawn();
 
         gameObject.SetActive(false);
     }
