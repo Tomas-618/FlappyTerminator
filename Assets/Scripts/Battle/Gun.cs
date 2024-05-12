@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
         foreach (Bullet bullet in _pool.Entities)
         {
             bullet.Handler.Hitted += _pool.PutInEntity;
-            ClearedPool += bullet.DestroyObject;
+            ClearedPool += () => Destroy(bullet.gameObject);
         }
 
         _pool.PutIn += bullet => bullet.gameObject.SetActive(false);
@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
         foreach (Bullet bullet in _pool.Entities)
         {
             bullet.Handler.Hitted -= _pool.PutInEntity;
-            ClearedPool -= bullet.DestroyObject;
+            ClearedPool -= () => Destroy(bullet.gameObject);
         }
 
         _pool.PutIn -= bullet => bullet.gameObject.SetActive(false);

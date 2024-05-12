@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
 
     private Transform _transform;
     private Coroutine _coroutine;
+    private ExplosionEffectsPool _explosionEffects;
 
     public BulletCollisionEventsHandler Handler => _handler;
 
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
         _transform = transform;
 
     public void Init(ExplosionEffectsPool explosionEffects) =>
-        Handler.Init(explosionEffects);
+        _explosionEffects = explosionEffects ?? throw new System.ArgumentNullException(nameof(explosionEffects));
 
     public void SetDirection(in Vector2 direction)
     {
@@ -40,8 +41,8 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
         _coroutine = StartCoroutine(Move(move));
     }
 
-    public void DestroyObject() =>
-        Destroy(gameObject);
+    public void Explode() =>
+        _explosionEffects.PutOutInPosition(_transform.position);
 
     private IEnumerator Move(Vector2 move)
     {

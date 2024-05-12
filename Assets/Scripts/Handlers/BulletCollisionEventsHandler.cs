@@ -6,13 +6,7 @@ public class BulletCollisionEventsHandler : MonoBehaviour
     [SerializeField] private CollisionInfo _collision;
     [SerializeField] private BulletMediator _mediator;
 
-    private Transform _transform;
-    private ExplosionEffectsPool _explosionEffects;
-
     public event Action<Bullet> Hitted;
-
-    private void Awake() =>
-        _transform = transform;
 
     private void OnEnable() =>
         _collision.CollisionDetected += CheckCollider;
@@ -20,11 +14,10 @@ public class BulletCollisionEventsHandler : MonoBehaviour
     private void OnDisable() =>
         _collision.CollisionDetected -= CheckCollider;
 
-    private void OnDestroy() =>
-        ExplodeInPosition(_transform.position);
-
-    public void Init(ExplosionEffectsPool explosionEffects) =>
-        _explosionEffects = explosionEffects ?? throw new ArgumentNullException(nameof(explosionEffects));
+    private void OnDestroy()
+    {
+        Debug.Log("!");
+    }
 
     private void CheckCollider(Component component)
     {
@@ -36,9 +29,6 @@ public class BulletCollisionEventsHandler : MonoBehaviour
         if (component.GetComponent<Zone>())
             return;
 
-        ExplodeInPosition(_transform.position);
-    }
-
-    private void ExplodeInPosition(in Vector2 point) =>
-        _explosionEffects.PutOutInPosition(point);
+        _mediator.BulletInfo.Explode();
+    }   
 }
