@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using AYellowpaper;
 
 [RequireComponent(typeof(Slider))]
-public class SmoothHealthUISlider : MonoBehaviour
+public class SmoothHealthUISlider : MonoBehaviour, IReadOnlyHealthUISliderEvents
 {
     [SerializeField, Min(0)] private float _changingDeltaValue;
 
@@ -12,6 +13,8 @@ public class SmoothHealthUISlider : MonoBehaviour
 
     private Slider _view;
     private Coroutine _coroutine;
+
+    public event Action ValueSetToZero;
 
     private void Awake() =>
         _view = GetComponent<Slider>();
@@ -47,5 +50,8 @@ public class SmoothHealthUISlider : MonoBehaviour
 
             yield return null;
         }
+
+        if (desiredValue == 0)
+            ValueSetToZero?.Invoke();
     }
 }
