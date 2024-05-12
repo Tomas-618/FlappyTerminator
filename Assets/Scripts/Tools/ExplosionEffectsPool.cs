@@ -33,6 +33,9 @@ public class ExplosionEffectsPool : MonoBehaviour
     {
         Explosion explosion = _pool.PutOutEntity();
 
+        if (explosion == null)
+            return;
+
         explosion.transform.position = point;
     }
 }
