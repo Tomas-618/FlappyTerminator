@@ -6,12 +6,12 @@ public class BirdCollisionEventsHandler : MonoBehaviour
     [SerializeField] private Hearts _hearts;
 
     private void OnEnable() =>
-        _collision.CollisionDetected += CheckCollider;
+        _collision.CollisionDetected += ChangeHeartsCountOnCollisionDetection;
 
     private void OnDisable() =>
-        _collision.CollisionDetected -= CheckCollider;
+        _collision.CollisionDetected -= ChangeHeartsCountOnCollisionDetection;
 
-    private void CheckCollider(Component component)
+    private void ChangeHeartsCountOnCollisionDetection(Component component)
     {
         if (component.GetComponent<Zone>())
             _hearts.Kill();

@@ -9,12 +9,12 @@ public class BulletCollisionEventsHandler : MonoBehaviour
     public event Action<Bullet> Hitted;
 
     private void OnEnable() =>
-        _collision.CollisionDetected += CheckCollider;
+        _collision.CollisionDetected += ProcessActionsOnCollisionDetection;
 
     private void OnDisable() =>
-        _collision.CollisionDetected -= CheckCollider;
+        _collision.CollisionDetected -= ProcessActionsOnCollisionDetection;
 
-    private void CheckCollider(Component component)
+    private void ProcessActionsOnCollisionDetection(Component component)
     {
         if (component.GetComponent<Bullet>())
             return;

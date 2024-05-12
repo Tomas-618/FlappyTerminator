@@ -7,12 +7,12 @@ public class RobotCollisionEventsHandler : MonoBehaviour
     [SerializeField] private CollisionInfo _collision;
 
     private void OnEnable() =>
-        _collision.CollisionDetected += CheckCollider;
+        _collision.CollisionDetected += TakeDamageOnCollisionDetection;
 
     private void OnDisable() =>
-        _collision.CollisionDetected -= CheckCollider;
+        _collision.CollisionDetected -= TakeDamageOnCollisionDetection;
 
-    private void CheckCollider(Component component)
+    private void TakeDamageOnCollisionDetection(Component component)
     {
         if (component.TryGetComponent(out IReadOnlyBullet bullet))
             _hearts.Value.TakeDamage(bullet.Damage);
