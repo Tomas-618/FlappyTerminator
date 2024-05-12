@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
     }
 
     public void Explode() =>
-        _explosionEffects.PutOutInPosition(_transform.position);
+        _explosionEffects.PutOutInPosition(transform.position);
 
     private IEnumerator Move(Vector2 move)
     {

@@ -14,11 +14,6 @@ public class BulletCollisionEventsHandler : MonoBehaviour
     private void OnDisable() =>
         _collision.CollisionDetected -= CheckCollider;
 
-    private void OnDestroy()
-    {
-        Debug.Log("!");
-    }
-
     private void CheckCollider(Component component)
     {
         if (component.GetComponent<Bullet>())
