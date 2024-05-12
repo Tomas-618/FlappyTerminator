@@ -1,11 +1,15 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IDamagable<float>
+public class Health : MonoBehaviour, IDamagable<float>, IReadOnlyHealthEvents
 {
     [SerializeField, Min(1)] private float _maxValue;
 
     private float _value;
+
+    public event Action<float> Damaged;
+
+    public event Action Died;
 
     public float Value
     {
@@ -21,11 +25,23 @@ public class Health : MonoBehaviour, IDamagable<float>
         }
     }
 
+    private void Start() =>
+        _value = _maxValue;
+
     public void TakeDamage(in float value)
     {
         if (value <= 0)
             throw new ArgumentOutOfRangeException(value.ToString());
 
-        _value -= value;
+        Value -= value;
+
+        if (Value <= 0)
+        {
+            Died?.Invoke();
+
+            return;
+        }
+
+        Damaged?.Invoke(Value);
     }
 }
