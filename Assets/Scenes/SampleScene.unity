@@ -5135,6 +5135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 2831363318468720903, guid: 5da57a71adc079e4b8d39abd296a782f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7882912843996623202, guid: 5da57a71adc079e4b8d39abd296a782f, type: 3}
       propertyPath: _pool
       value: 
