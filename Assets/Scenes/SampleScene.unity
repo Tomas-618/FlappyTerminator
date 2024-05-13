@@ -1151,7 +1151,6 @@ GameObject:
   - component: {fileID: 196928802}
   - component: {fileID: 196928805}
   - component: {fileID: 196928804}
-  - component: {fileID: 196928806}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -1306,23 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1003ec9d8ef0341ab98eb0bd209e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &196928806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196928797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c7615df41835d4ebc12404f9a41b78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _events:
-    _underlyingValue: {fileID: 196928802}
-  _explosionEffectsFabric: {fileID: 1747580318}
-  _input: {fileID: 887167540}
-  _sounds: {fileID: 1142543387}
 --- !u!1 &265639007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,8 +1443,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7801e1f7d35758e4eb5fcf79659a5569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _events:
+    _underlyingValue: {fileID: 196928802}
   _count: 6
+  _clearingDelay: 1
   _fabric: {fileID: 534513012}
+  _isClearWithDelay: 1
 --- !u!4 &387668638
 Transform:
   m_ObjectHideFlags: 0
@@ -2547,6 +2533,7 @@ GameObject:
   - component: {fileID: 887167538}
   - component: {fileID: 887167539}
   - component: {fileID: 887167540}
+  - component: {fileID: 887167541}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -2672,7 +2659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808818148d4793742a2009eca77ae0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heartsEvents:
+  _events:
     _underlyingValue: {fileID: 196928802}
 --- !u!114 &887167540
 MonoBehaviour:
@@ -2687,6 +2674,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gun: {fileID: 887167537}
+--- !u!114 &887167541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887167534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31a052ba09df5a479cc89cbaee5f323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+    _underlyingValue: {fileID: 196928802}
+  _input:
+    _underlyingValue: {fileID: 887167540}
+  _entity: {fileID: 196928803}
 --- !u!1 &893786946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,6 +3379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e5b81979931c24495d55e4c0364fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _events:
+    _underlyingValue: {fileID: 196928802}
   _flutterClipVolume: 1
   _damageClipVolume: 0.4
   _moverEvents:
@@ -3559,8 +3565,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7801e1f7d35758e4eb5fcf79659a5569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _events:
+    _underlyingValue: {fileID: 196928802}
   _count: 5
+  _clearingDelay: 0
   _fabric: {fileID: 1185935161}
+  _isClearWithDelay: 0
 --- !u!1 &1185935160
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,7 +4475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: {fileID: 8748148914490327031, guid: 2808337db07429c4497dc13c9605f816, type: 3}
   _parent: {fileID: 1021853422}
-  _explosionEffects: {fileID: 387668637}
+  _explosionEffects:
+    _underlyingValue: {fileID: 387668637}
 --- !u!1 &1705880607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,6 +5152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7882912843996623202, guid: 5da57a71adc079e4b8d39abd296a782f, type: 3}
       propertyPath: _pool
+      value: 
+      objectReference: {fileID: 1167407331}
+    - target: {fileID: 7882912843996623202, guid: 5da57a71adc079e4b8d39abd296a782f, type: 3}
+      propertyPath: _pool._underlyingValue
       value: 
       objectReference: {fileID: 1167407331}
     - target: {fileID: 8015298048201554877, guid: 5da57a71adc079e4b8d39abd296a782f, type: 3}

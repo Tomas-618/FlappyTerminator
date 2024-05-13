@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
 
     private Transform _transform;
     private Coroutine _coroutine;
-    private ExplosionEffectsPool _explosionEffects;
+    private ICanOnlyPutOutInPosition _explosionEffects;
 
     public BulletCollisionEventsHandler Handler => _handler;
 
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour, IReadOnlyBullet
     private void Awake() =>
         _transform = transform;
 
-    public void Init(ExplosionEffectsPool explosionEffects) =>
+    public void Init(ICanOnlyPutOutInPosition explosionEffects) =>
         _explosionEffects = explosionEffects ?? throw new System.ArgumentNullException(nameof(explosionEffects));
 
     public void SetDirection(in Vector2 direction)

@@ -4,7 +4,7 @@ using AYellowpaper;
 public class RobotDieEventHandler : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHealthEvents, MonoBehaviour> _events;
-    [SerializeField] private ExplosionEffectsPool _pool;
+    [SerializeField] private InterfaceReference<ICanOnlyPutOutInPosition, MonoBehaviour> _pool;
 
     private Transform _transform;
 
@@ -18,5 +18,5 @@ public class RobotDieEventHandler : MonoBehaviour
         _events.Value.Died -= Die;
 
     private void Die() =>
-        _pool.PutOutInPosition(_transform.position);
+        _pool.Value.PutOutInPosition(_transform.position);
 }

@@ -1,14 +1,15 @@
 using UnityEngine;
+using AYellowpaper;
 
 public class BulletFabric : Fabric<Bullet>
 {
-    [SerializeField] private ExplosionEffectsPool _explosionEffects;
+    [SerializeField] private InterfaceReference<ICanOnlyPutOutInPosition, MonoBehaviour> _explosionEffects;
 
     public override Bullet Create()
     {
         Bullet entity = base.Create();
 
-        entity.Init(_explosionEffects);
+        entity.Init(_explosionEffects.Value);
 
         return entity;
     }

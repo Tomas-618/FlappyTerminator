@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: BirdExploded
+    m_ConditionEvent: BirdDied
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8996431421532140251}
@@ -60,7 +60,7 @@ AnimatorController:
   m_Name: Gun
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: BirdExploded
+  - m_Name: BirdDied
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunFalling
+  m_Name: Falling
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

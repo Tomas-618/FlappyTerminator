@@ -2,7 +2,7 @@ using UnityEngine;
 using AYellowpaper;
 
 [RequireComponent(typeof(AudioSource))]
-public class BirdSounds : MonoBehaviour
+public class BirdSounds : HeartsDieEventHandler
 {
     [SerializeField, Range(0, 1)] private float _flutterClipVolume;
     [SerializeField, Range(0, 1)] private float _damageClipVolume;
@@ -12,6 +12,7 @@ public class BirdSounds : MonoBehaviour
     [SerializeField] private AudioClip _flutterClip;
     [SerializeField] private AudioClip _damageClip;
 
+    private Transform _transform;
     private AudioSource _source;
 
     private void Reset()
@@ -20,14 +21,21 @@ public class BirdSounds : MonoBehaviour
         _damageClipVolume = 0.4f;
     }
 
-    private void OnEnable()
+    private void Awake() =>
+        _transform = transform;
+
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         _moverEvents.Value.Fluttered += PlayOnFlutter;
         _heartsEvents.Value.Damaged += PlayOnTakingDamage;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
+
         if (_moverEvents.Value == null || _heartsEvents.Value == null)
             return;
 
@@ -36,6 +44,9 @@ public class BirdSounds : MonoBehaviour
 
     private void Start() =>
         _source = GetComponent<AudioSource>();
+
+    protected override void DoActionOnPlayerDeath() =>
+        _transform.SetParent(null);
 
     private void PlayOnFlutter() =>
         PlayClip(_flutterClip, _flutterClipVolume);

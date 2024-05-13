@@ -1,18 +1,25 @@
 using UnityEngine;
 
-public class PlayerInputToShoot : MonoBehaviour
+public class PlayerInputToShoot : MonoBehaviour, ICanOnlyDisable
 {
     [SerializeField] private Gun _gun;
 
     private Transform _gunTransform;
-
-    public Gun GunInfo => _gun;
 
     private void Start() =>
         _gunTransform = _gun.transform;
 
     private void Update() =>
         Shoot();
+
+    public void Disable()
+    {
+        _gunTransform.SetParent(null);
+        _gunTransform.rotation = Quaternion.identity;
+
+        _gun.ClearPool();
+        enabled = false;
+    }
 
     private void Shoot()
     {

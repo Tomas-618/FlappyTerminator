@@ -1,27 +1,16 @@
 using UnityEngine;
-using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
-public class GunAnimationState : MonoBehaviour
+public class GunAnimationState : HeartsDieEventHandler
 {
-    [SerializeField] private InterfaceReference<IReadOnlyHeartsEvents, MonoBehaviour> _heartsEvents;
-
     private Animator _animator;
-
-    private void OnEnable() =>
-        _heartsEvents.Value.Died += SetFallingParameter;
-
-    private void OnDisable()
-    {
-        if (_heartsEvents.Value == null)
-            return;
-
-        _heartsEvents.Value.Died -= SetFallingParameter;
-    }
 
     private void Start() =>
         _animator = GetComponent<Animator>();
 
+    protected override void DoActionOnPlayerDeath() =>
+        SetFallingParameter();
+
     private void SetFallingParameter() =>
-        _animator.SetTrigger(GunAnimationParams.BirdExploded);
+        _animator.SetTrigger(GunAnimationParams.BirdDied);
 }
