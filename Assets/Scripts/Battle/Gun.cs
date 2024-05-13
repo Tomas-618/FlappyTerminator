@@ -17,40 +17,31 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
 
     public event Action Shooted;
 
-    public event Action ClearedPool;
-
     private void Awake() =>
         _pool = new ObjectsPool<Bullet>(_bulletsFabric.Create, _maxBulletsCount);
 
     private void OnEnable()
     {
-        foreach (Bullet bullet in _pool.Entities)
-        {
+        foreach (Bullet bullet in _pool.AllEntities)
             bullet.Handler.Hitted += _pool.PutInEntity;
-            ClearedPool += () => DestroyBullets(bullet);
-        }
 
         _pool.PutIn += bullet => bullet.gameObject.SetActive(false);
         _pool.PutOut += ReleaseBullet;
+        _pool.Removed += DestroyBullets;
     }
 
     private void OnDisable()
     {
-        foreach (Bullet bullet in _pool.Entities)
-        {
+        foreach (Bullet bullet in _pool.AllEntities)
             bullet.Handler.Hitted -= _pool.PutInEntity;
-            ClearedPool -= () => DestroyBullets(bullet);
-        }
 
         _pool.PutIn -= bullet => bullet.gameObject.SetActive(false);
         _pool.PutOut -= ReleaseBullet;
+        _pool.Removed -= DestroyBullets;
     }
 
-    public void ClearPool()
-    {
-        _pool.Clear();
-        ClearedPool?.Invoke();
-    }
+    public void ClearPool() =>
+        _pool.ClearAllEntities();
 
     public void Shoot(in Vector2 direction)
     {

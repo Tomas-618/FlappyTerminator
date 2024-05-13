@@ -20,7 +20,7 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
     {
         base.OnEnable();
 
-        foreach (Explosion entity in _entities.Entities)
+        foreach (Explosion entity in _entities.AllEntities)
             entity.LifeTimeEnded += _entities.PutInEntity;
 
         _entities.PutIn += entity => entity.gameObject.SetActive(false);
@@ -32,7 +32,7 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
     {
         base.OnDisable();
 
-        foreach (Explosion entity in _entities.Entities)
+        foreach (Explosion entity in _entities.AllEntities)
             entity.LifeTimeEnded -= _entities.PutInEntity;
 
         _entities.PutIn -= entity => entity.gameObject.SetActive(false);
@@ -67,7 +67,7 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
     }
 
     private void Clear() =>
-        _entities.Clear();
+        _entities.ClearStoredEntities();
 
     private IEnumerator WaitBeforeCleaning(float delay)
     {
