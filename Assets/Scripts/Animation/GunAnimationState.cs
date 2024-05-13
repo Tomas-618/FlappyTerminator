@@ -8,7 +8,7 @@ public class GunAnimationState : HeartsDieEventHandler
     private void Start() =>
         _animator = GetComponent<Animator>();
 
-    protected override void DoActionOnPlayerDeath() =>
+    protected override void DoActionOnDeath() =>
         SetFallingParameter();
 
     private void SetFallingParameter() =>

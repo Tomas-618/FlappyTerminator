@@ -45,7 +45,7 @@ public class BirdSounds : HeartsDieEventHandler
     private void Start() =>
         _source = GetComponent<AudioSource>();
 
-    protected override void DoActionOnPlayerDeath() =>
+    protected override void DoActionOnDeath() =>
         _transform.SetParent(null);
 
     private void PlayOnFlutter() =>

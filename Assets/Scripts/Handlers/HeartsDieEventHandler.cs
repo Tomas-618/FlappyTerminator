@@ -7,17 +7,17 @@ public abstract class HeartsDieEventHandler : MonoBehaviour
     //[SerializeField] private Fabric<Explosion> _explosionEffectsFabric;
 
     protected virtual void OnEnable() =>
-        _events.Value.Died += DoActionOnPlayerDeath;
+        _events.Value.Died += DoActionOnDeath;
 
     protected virtual void OnDisable()
     {
         if (_events.Value == null)
             return;
 
-        _events.Value.Died -= DoActionOnPlayerDeath;
+        _events.Value.Died -= DoActionOnDeath;
     }
-
-    protected abstract void DoActionOnPlayerDeath();
+     
+    protected abstract void DoActionOnDeath();
 
     //private void Die()
     //{

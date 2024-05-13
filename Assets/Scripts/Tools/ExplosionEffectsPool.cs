@@ -50,7 +50,7 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
         explosion.transform.position = point;
     }
 
-    protected override void DoActionOnPlayerDeath()
+    protected override void DoActionOnDeath()
     {
         if (_isClearWithDelay)
             ClearWithDelay(_clearingDelay);
