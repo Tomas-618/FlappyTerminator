@@ -74,6 +74,9 @@ namespace Pool
 
         public void ClearStoredEntities()
         {
+            if (_storedEntities.Count == 0)
+                return;
+
             foreach (T entity in _storedEntities)
                 Removed?.Invoke(entity);
 
@@ -86,6 +89,9 @@ namespace Pool
 
         public void ClearAllEntities()
         {
+            if (_allEnteties.Count == 0)
+                return;
+
             foreach (T entity in _allEnteties)
                 Removed?.Invoke(entity);
 
