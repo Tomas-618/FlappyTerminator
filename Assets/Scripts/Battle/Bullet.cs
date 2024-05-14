@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IReadOnlyBullet
+public class Bullet : MonoBehaviour, IReadOnlyBullet, IInitializable<ICanOnlyPutOutInPosition>
 {
     private readonly float _speedCoefficient = 0.01f;
 

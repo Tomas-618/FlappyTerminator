@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 using AYellowpaper;
 
-public class RobotDieEventHandler : MonoBehaviour
+public class RobotDieEventHandler : MonoBehaviour, IInitializable<ICanOnlyPutOutInPosition>
 {
     [SerializeField] private InterfaceReference<IReadOnlyHealthEvents, MonoBehaviour> _events;
-    [SerializeField] private InterfaceReference<ICanOnlyPutOutInPosition, MonoBehaviour> _pool;
 
+    private ICanOnlyPutOutInPosition _pool;
     private Transform _transform;
 
     private void Awake() =>
@@ -17,6 +18,9 @@ public class RobotDieEventHandler : MonoBehaviour
     private void OnDisable() =>
         _events.Value.Died -= Die;
 
+    public void Init(ICanOnlyPutOutInPosition pool) =>
+        _pool = pool ?? throw new ArgumentNullException(nameof(pool));
+
     private void Die() =>
-        _pool.Value.PutOutInPosition(_transform.position);
+        _pool.PutOutInPosition(_transform.position);
 }

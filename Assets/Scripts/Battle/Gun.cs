@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Pool;
 
-public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
+public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable<Fabric<Bullet>>
 {
     [SerializeField, Min(0)] private float _shootingDelay;
     [SerializeField, Min(0)] private int _maxBulletsCount;
@@ -39,6 +39,9 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable
         _pool.PutOut -= ReleaseBullet;
         _pool.Removed -= DestroyBullets;
     }
+
+    public void Init(Fabric<Bullet> fabric) =>
+        _bulletsFabric = fabric ?? throw new ArgumentOutOfRangeException(nameof(fabric));
 
     public void ClearPool() =>
         _pool.ClearAllEntities();
