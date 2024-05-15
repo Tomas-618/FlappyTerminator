@@ -1335,7 +1335,6 @@ Transform:
   m_Children:
   - {fileID: 387668638}
   - {fileID: 1167407330}
-  - {fileID: 356988131}
   m_Father: {fileID: 1801416171}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1370,55 +1369,6 @@ Transform:
   m_Father: {fileID: 953740523}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &356988130
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 356988131}
-  - component: {fileID: 356988132}
-  m_Layer: 0
-  m_Name: RobotsPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &356988131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356988130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 265639008}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &356988132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356988130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959cb22c17907e64aaf5c0e45a7d6024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _minSpawnDelay: 5
-  _maxSpawnDelay: 13
-  _count: 5
-  _fabric: {fileID: 768119845}
-  _spawnPointsParent: {fileID: 568178770}
 --- !u!1 &365809248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,7 +1892,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568178769}
-  - component: {fileID: 568178770}
   m_Layer: 0
   m_Name: RobotSpawnPoints
   m_TagString: Untagged
@@ -1970,24 +1919,6 @@ Transform:
   m_Father: {fileID: 1801416171}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &568178770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568178768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b7246eee145a64eb60f8875dc7903b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _children:
-  - {fileID: 8015298049451492207}
-  - {fileID: 8015298049113248115}
-  - {fileID: 8015298047605150557}
-  - {fileID: 7028342758490665238}
-  - {fileID: 8015298047632860637}
 --- !u!1 &582831672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,6 +5429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fabric: {fileID: 768119845}
 --- !u!4 &8015298047605150556
 Transform:
   m_ObjectHideFlags: 0
@@ -5525,6 +5457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fabric: {fileID: 768119845}
 --- !u!4 &8015298047632860636
 Transform:
   m_ObjectHideFlags: 0
@@ -5552,6 +5485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fabric: {fileID: 768119845}
 --- !u!4 &8015298049113248114
 Transform:
   m_ObjectHideFlags: 0
@@ -5579,6 +5513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fabric: {fileID: 768119845}
 --- !u!4 &8015298049451492206
 Transform:
   m_ObjectHideFlags: 0
@@ -5606,3 +5541,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fabric: {fileID: 768119845}

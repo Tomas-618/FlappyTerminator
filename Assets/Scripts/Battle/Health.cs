@@ -25,7 +25,7 @@ public class Health : MonoBehaviour, IDamagable<float>, IReadOnlyHealthEvents
         }
     }
 
-    private void Start() =>
+    private void OnEnable() =>
         _value = _maxValue;
 
     public void TakeDamage(in float value)
