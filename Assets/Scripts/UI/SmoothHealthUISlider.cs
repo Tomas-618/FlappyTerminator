@@ -27,6 +27,10 @@ public class SmoothHealthUISlider : MonoBehaviour, IReadOnlyHealthUISliderEvents
 
     private void OnDisable()
     {
+        if (_events.Value == null)
+            return;
+
+        _view.value = _view.maxValue;
         _events.Value.Damaged -= ChangeValue;
         _events.Value.Died -= SetValueOnDie;
     }

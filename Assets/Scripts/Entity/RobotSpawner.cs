@@ -1,8 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class RobotSpawner : MonoBehaviour
 {
+    [SerializeField, Min(0)] private float _despawnDelay;
+
     private Transform _transform;
     private Robot _entity;
     private bool _isBusy;
@@ -43,8 +46,7 @@ public class RobotSpawner : MonoBehaviour
         if (_isBusy == false)
             return;
 
-        _entity.gameObject.SetActive(false);
-
+        StartCoroutine(ProcessDespawn(_entity, _despawnDelay));
         _isBusy = false;
     }
 
@@ -64,5 +66,10 @@ public class RobotSpawner : MonoBehaviour
         entity.HealthEvents.Died -= died;
     }
 
+    private IEnumerator ProcessDespawn(Robot entity, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        entity.gameObject.SetActive(false);
+    }
 }

@@ -1,19 +1,25 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using AYellowpaper;
 
-public class HealthUISliderHider : MonoBehaviour
+public class HealthUISliderHider : MonoBehaviour, IReadOnlySliderHiderEvents
 {
     [SerializeField, Min(0)] private float _changingDeltaValue;
 
     [SerializeField] private InterfaceReference<IReadOnlyHealthUISliderEvents, MonoBehaviour> _events;
     [SerializeField] private CanvasGroup _canvasGroup;
 
+    public event Action AlphaSetToZero;
+
     private void OnEnable() =>
         _events.Value.ValueSetToZero += SetValueToZero;
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
+        _canvasGroup.alpha = 1;
         _events.Value.ValueSetToZero -= SetValueToZero;
+    }
 
     private void SetValueToZero() =>
         StartCoroutine(ProcessValueChanging());
@@ -26,5 +32,7 @@ public class HealthUISliderHider : MonoBehaviour
 
             yield return null;
         }
+
+        AlphaSetToZero?.Invoke();
     }
 }
