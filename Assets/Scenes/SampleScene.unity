@@ -1892,8 +1892,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568178769}
+  - component: {fileID: 568178770}
   m_Layer: 0
-  m_Name: RobotSpawnPoints
+  m_Name: RobotSpawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1906,7 +1907,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568178768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1916,9 +1917,30 @@ Transform:
   - {fileID: 8015298047605150556}
   - {fileID: 3026061008076485551}
   - {fileID: 8015298047632860636}
-  m_Father: {fileID: 1801416171}
+  m_Father: {fileID: 953740523}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568178770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568178768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115c70fe406fc884989d6a161c5e4ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minDelay: 5
+  _maxDelay: 10
+  _children:
+  - {fileID: 8015298049451492207}
+  - {fileID: 8015298049113248115}
+  - {fileID: 8015298047605150557}
+  - {fileID: 7028342758490665238}
+  - {fileID: 8015298047632860637}
+  _fabric: {fileID: 768119845}
 --- !u!1 &582831672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,6 +2909,7 @@ Transform:
   - {fileID: 582831673}
   - {fileID: 1308833066}
   - {fileID: 2077680340}
+  - {fileID: 568178769}
   m_Father: {fileID: 1801416171}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4869,7 +4892,6 @@ Transform:
   - {fileID: 1708310177}
   - {fileID: 893786947}
   - {fileID: 953740523}
-  - {fileID: 568178769}
   - {fileID: 265639008}
   - {fileID: 1082592128}
   m_Father: {fileID: 0}
@@ -5328,7 +5350,7 @@ GameObject:
   - component: {fileID: 8015298049451492206}
   - component: {fileID: 8015298049451492207}
   m_Layer: 0
-  m_Name: RobotSpawnPoint1
+  m_Name: RobotSpawner1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5345,7 +5367,7 @@ GameObject:
   - component: {fileID: 8015298049113248114}
   - component: {fileID: 8015298049113248115}
   m_Layer: 0
-  m_Name: RobotSpawnPoint2
+  m_Name: RobotSpawner2
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5362,7 +5384,7 @@ GameObject:
   - component: {fileID: 8015298047605150556}
   - component: {fileID: 8015298047605150557}
   m_Layer: 0
-  m_Name: RobotSpawnPoint3
+  m_Name: RobotSpawner3
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5379,7 +5401,7 @@ GameObject:
   - component: {fileID: 8015298047632860636}
   - component: {fileID: 8015298047632860637}
   m_Layer: 0
-  m_Name: RobotSpawnPoint5
+  m_Name: RobotSpawner5
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5411,7 +5433,7 @@ GameObject:
   - component: {fileID: 3026061008076485551}
   - component: {fileID: 7028342758490665238}
   m_Layer: 0
-  m_Name: RobotSpawnPoint4
+  m_Name: RobotSpawner4
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5429,7 +5451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabric: {fileID: 768119845}
 --- !u!4 &8015298047605150556
 Transform:
   m_ObjectHideFlags: 0
@@ -5457,7 +5478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabric: {fileID: 768119845}
 --- !u!4 &8015298047632860636
 Transform:
   m_ObjectHideFlags: 0
@@ -5485,7 +5505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabric: {fileID: 768119845}
 --- !u!4 &8015298049113248114
 Transform:
   m_ObjectHideFlags: 0
@@ -5513,7 +5532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabric: {fileID: 768119845}
 --- !u!4 &8015298049451492206
 Transform:
   m_ObjectHideFlags: 0
@@ -5541,4 +5559,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a489e2b82811448fdcba2b90187fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fabric: {fileID: 768119845}
