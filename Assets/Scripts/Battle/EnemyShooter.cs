@@ -15,7 +15,7 @@ public class EnemyShooter : MonoBehaviour
             _minShootingDelay = _maxShootingDelay - 1;
     }
 
-    private void Start() =>
+    private void OnEnable() =>
         StartCoroutine(Shoot(_minShootingDelay, _maxShootingDelay));
 
     private IEnumerator Shoot(float minDelay, float maxDelay)
