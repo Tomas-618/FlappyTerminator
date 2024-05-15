@@ -11,8 +11,13 @@ public class ShootingExplosionAnimationState : MonoBehaviour
     private void OnEnable() =>
         _gunEvents.Value.Shooted += SetTrigger;
 
-    private void OnDisable() =>
+    private void OnDisable()
+    {
+        if (_gunEvents.Value == null)
+            return;
+
         _gunEvents.Value.Shooted += SetTrigger;
+    }
 
     private void Start() =>
         _animator = GetComponent<Animator>();

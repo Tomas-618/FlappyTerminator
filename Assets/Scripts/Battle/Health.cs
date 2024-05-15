@@ -11,6 +11,8 @@ public class Health : MonoBehaviour, IDamagable<float>, IReadOnlyHealthEvents
 
     public event Action Died;
 
+    public event Action Reset;
+
     public float Value
     {
         get => _value;
@@ -25,8 +27,11 @@ public class Health : MonoBehaviour, IDamagable<float>, IReadOnlyHealthEvents
         }
     }
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
         _value = _maxValue;
+        Reset?.Invoke();
+    }
 
     public void TakeDamage(in float value)
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using AYellowpaper;
 
 [RequireComponent(typeof(Canvas))]
-public class RobotUITest : MonoBehaviour
+public class RobotCanvas : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHealthEvents, MonoBehaviour> _model;
     [SerializeField] private InterfaceReference<IReadOnlySliderHiderEvents, MonoBehaviour> _sliderHider;
@@ -10,15 +10,13 @@ public class RobotUITest : MonoBehaviour
 
     private Transform _transform;
 
-    private void Awake()
-    {
+    private void Awake() =>
         _transform = transform;
-    }
 
     private void OnEnable()
     {
-        _model.Value.Died += Do;
-        _sliderHider.Value.AlphaSetToZero += Undo;
+        _model.Value.Died += RemoveParent;
+        _sliderHider.Value.AlphaSetToZero += SetParentAndPosition;
     }
 
     private void OnDisable()
@@ -26,16 +24,14 @@ public class RobotUITest : MonoBehaviour
         if (_model.Value == null)
             return;
 
-        _model.Value.Died -= Do;
-        _sliderHider.Value.AlphaSetToZero -= Undo;
+        _model.Value.Died -= RemoveParent;
+        _sliderHider.Value.AlphaSetToZero -= SetParentAndPosition;
     }
 
-    private void Do()
-    {
+    private void RemoveParent() =>
         _transform.SetParent(null);
-    }
 
-    private void Undo()
+    private void SetParentAndPosition()
     {
         _transform.SetParent(_target);
         _transform.position = _target.position;

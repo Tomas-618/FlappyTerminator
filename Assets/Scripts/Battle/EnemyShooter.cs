@@ -9,6 +9,8 @@ public class EnemyShooter : MonoBehaviour
 
     [SerializeField] private InterfaceReference<IShootable, MonoBehaviour> _gun;
 
+    private Coroutine _coroutine;
+
     private void OnValidate()
     {
         if (_minShootingDelay >= _maxShootingDelay)
@@ -16,7 +18,13 @@ public class EnemyShooter : MonoBehaviour
     }
 
     private void OnEnable() =>
-        StartCoroutine(Shoot(_minShootingDelay, _maxShootingDelay));
+        _coroutine = StartCoroutine(Shoot(_minShootingDelay, _maxShootingDelay));
+
+    private void OnDisable()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+    }
 
     private IEnumerator Shoot(float minDelay, float maxDelay)
     {

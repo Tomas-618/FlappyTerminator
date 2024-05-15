@@ -10,6 +10,8 @@ public class RobotSpawner : MonoBehaviour
     private Robot _entity;
     private bool _isBusy;
 
+    public event Action<bool> ChangedState;
+
     public IReadOnlyHealthEvents HealthEvents => _entity.HealthEvents;
 
     public bool IsBusy => _isBusy;
@@ -39,6 +41,7 @@ public class RobotSpawner : MonoBehaviour
         _entity.gameObject.SetActive(true);
 
         _isBusy = true;
+        ChangedState?.Invoke(true);
     }
 
     private void Despawn()
@@ -47,7 +50,6 @@ public class RobotSpawner : MonoBehaviour
             return;
 
         StartCoroutine(ProcessDespawn(_entity, _despawnDelay));
-        _isBusy = false;
     }
 
     private void AddListenerOnDieEvent(Robot entity, Action died)
@@ -70,6 +72,8 @@ public class RobotSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        _isBusy = false;
+        ChangedState?.Invoke(false);
         entity.gameObject.SetActive(false);
     }
 }

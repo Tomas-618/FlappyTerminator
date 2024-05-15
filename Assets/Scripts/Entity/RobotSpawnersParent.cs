@@ -30,10 +30,18 @@ public class RobotSpawnersParent : MonoBehaviour
     }
 
     private void OnEnable() =>
-        _children.ForEach(child => child.HealthEvents.Died += StartSpawningInRandomChild);
+        _children.ForEach(child => child.ChangedState += isBusy =>
+        {
+            if (isBusy == false)
+                StartSpawningInRandomChild();
+        });
 
     private void OnDisable() =>
-        _children.ForEach(child => child.HealthEvents.Died -= StartSpawningInRandomChild);
+        _children.ForEach(child => child.ChangedState -= isBusy =>
+        {
+            if (isBusy == false)
+                StartSpawningInRandomChild();
+        });
 
     private void Start() =>
         StartSpawningInRandomChild();
@@ -57,8 +65,8 @@ public class RobotSpawnersParent : MonoBehaviour
                 .Where(IsSpawnerPointFree)
                 .ToArray();
 
-            wait = new WaitForSeconds(Random.Range(minDelay, maxDelay));
             childrenWithFreePoints[Random.Range(0, childrenWithFreePoints.Length)].Spawn();
+            wait = new WaitForSeconds(Random.Range(minDelay, maxDelay));
 
             yield return wait;
         }
