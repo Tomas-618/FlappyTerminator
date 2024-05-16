@@ -2,7 +2,7 @@ using UnityEngine;
 using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
-public class ShootingExplosionAnimationState : MonoBehaviour
+public class ShootingExplosionAnimator : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyGunEvents, MonoBehaviour> _gunEvents;
 

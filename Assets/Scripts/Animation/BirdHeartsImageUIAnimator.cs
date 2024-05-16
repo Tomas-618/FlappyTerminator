@@ -2,7 +2,7 @@
 using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
-public class BirdHeartsImageUIAnimationState : MonoBehaviour
+public class BirdHeartsImageUIAnimator : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHeartsEvents, MonoBehaviour> _heartsEvents;
 

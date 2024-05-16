@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class GunAnimationState : HeartsDieEventHandler
+public class GunAnimator : HeartsDieEventHandler
 {
     private Animator _animator;
 

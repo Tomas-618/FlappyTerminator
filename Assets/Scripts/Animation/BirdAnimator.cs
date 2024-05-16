@@ -3,7 +3,7 @@ using UnityEngine;
 using AYellowpaper;
 
 [RequireComponent(typeof(Animator))]
-public class BirdAnimationState : MonoBehaviour
+public class BirdAnimator : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _damageDelay;
 
