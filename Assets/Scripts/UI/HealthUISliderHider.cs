@@ -1,25 +1,27 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using AYellowpaper;
 
 public class HealthUISliderHider : MonoBehaviour, IReadOnlySliderHiderEvents
 {
     [SerializeField, Min(0)] private float _changingDeltaValue;
 
-    [SerializeField] private InterfaceReference<IReadOnlyHealthUISliderEvents, MonoBehaviour> _events;
+    [SerializeField] private RobotHealthUI _view;
     [SerializeField] private CanvasGroup _canvasGroup;
 
     public event Action AlphaSetToZero;
 
+    public void Reset()
+    {
+        _canvasGroup.alpha = 1;
+        _view.Reset();
+    }
+
     private void OnEnable() =>
-        _events.Value.ValueSetToZero += SetValueToZero;
+        _view.InnieSliderInfo.ValueSetToZero += SetValueToZero;
 
     private void OnDisable() =>
-        _events.Value.ValueSetToZero -= SetValueToZero;
-
-    public void SetAlphaToOne() =>
-        _canvasGroup.alpha = 1;
+        _view.InnieSliderInfo.ValueSetToZero -= SetValueToZero;
 
     private void SetValueToZero() =>
         StartCoroutine(ProcessValueChanging());

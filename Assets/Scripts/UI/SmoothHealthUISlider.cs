@@ -16,6 +16,9 @@ public class SmoothHealthUISlider : MonoBehaviour, IReadOnlyHealthUISliderEvents
 
     public event Action ValueSetToZero;
 
+    public void Reset() =>
+        _view.value = _view.maxValue;
+
     private void Awake() =>
         _view = GetComponent<Slider>();
 
@@ -30,7 +33,6 @@ public class SmoothHealthUISlider : MonoBehaviour, IReadOnlyHealthUISliderEvents
         if (_events.Value == null)
             return;
 
-        _view.value = _view.maxValue;
         _events.Value.Damaged -= ChangeValue;
         _events.Value.Died -= SetValueOnDie;
     }

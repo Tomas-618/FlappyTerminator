@@ -35,6 +35,6 @@ public class RobotCanvas : MonoBehaviour
     {
         _transform.SetParent(_target);
         _transform.position = _target.position;
-        _sliderHider.SetAlphaToOne();
+        _sliderHider.Reset();
     }
 }
