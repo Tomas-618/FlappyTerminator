@@ -5,7 +5,7 @@ using AYellowpaper;
 public class RobotCanvas : MonoBehaviour
 {
     [SerializeField] private InterfaceReference<IReadOnlyHealthEvents, MonoBehaviour> _model;
-    [SerializeField] private InterfaceReference<IReadOnlySliderHiderEvents, MonoBehaviour> _sliderHider;
+    [SerializeField] private HealthUISliderHider _sliderHider;
     [SerializeField] private Transform _target;
 
     private Transform _transform;
@@ -16,7 +16,7 @@ public class RobotCanvas : MonoBehaviour
     private void OnEnable()
     {
         _model.Value.Died += RemoveParent;
-        _sliderHider.Value.AlphaSetToZero += SetParentAndPosition;
+        _sliderHider.AlphaSetToZero += SetParentAndPosition;
     }
 
     private void OnDisable()
@@ -25,7 +25,7 @@ public class RobotCanvas : MonoBehaviour
             return;
 
         _model.Value.Died -= RemoveParent;
-        _sliderHider.Value.AlphaSetToZero -= SetParentAndPosition;
+        _sliderHider.AlphaSetToZero -= SetParentAndPosition;
     }
 
     private void RemoveParent() =>
@@ -35,5 +35,6 @@ public class RobotCanvas : MonoBehaviour
     {
         _transform.SetParent(_target);
         _transform.position = _target.position;
+        _sliderHider.SetAlphaToOne();
     }
 }

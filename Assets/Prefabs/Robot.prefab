@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04507d791af7b674e9d63e0830319db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changingDeltaValue: 0.1
+  _changingDeltaValue: 0.2
   _events:
     _underlyingValue: {fileID: 8685988758908101701}
 --- !u!1 &2250997146165803492
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04507d791af7b674e9d63e0830319db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changingDeltaValue: 0.3
+  _changingDeltaValue: 0.4
   _events:
     _underlyingValue: {fileID: 8685988758908101701}
 --- !u!225 &5828187242283080589
@@ -1682,8 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _model:
     _underlyingValue: {fileID: 8685988758908101701}
-  _sliderHider:
-    _underlyingValue: {fileID: 2352384369121158501}
+  _sliderHider: {fileID: 2352384369121158501}
   _target: {fileID: 1215478541764467700}
 --- !u!1 &8833565209623144359
 GameObject:

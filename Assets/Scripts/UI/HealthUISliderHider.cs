@@ -15,11 +15,11 @@ public class HealthUISliderHider : MonoBehaviour, IReadOnlySliderHiderEvents
     private void OnEnable() =>
         _events.Value.ValueSetToZero += SetValueToZero;
 
-    private void OnDisable()
-    {
-        _canvasGroup.alpha = 1;
+    private void OnDisable() =>
         _events.Value.ValueSetToZero -= SetValueToZero;
-    }
+
+    public void SetAlphaToOne() =>
+        _canvasGroup.alpha = 1;
 
     private void SetValueToZero() =>
         StartCoroutine(ProcessValueChanging());
