@@ -29,7 +29,7 @@ public class BirdAnimator : MonoBehaviour
         _animator = GetComponent<Animator>();
 
     private void SetFlutterParameter() =>
-        _animator.SetTrigger(BirdAnimationParams.Fluttered);
+        _animator.SetTrigger(BirdAnimatorParams.Fluttered);
 
     private void SetDamageParameter(int count)
     {
@@ -43,10 +43,10 @@ public class BirdAnimator : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(delay);
 
-        _animator.SetBool(BirdAnimationParams.IsDamaged, true);
+        _animator.SetBool(BirdAnimatorParams.IsDamaged, true);
 
         yield return wait;
 
-        _animator.SetBool(BirdAnimationParams.IsDamaged, false);
+        _animator.SetBool(BirdAnimatorParams.IsDamaged, false);
     }
 }

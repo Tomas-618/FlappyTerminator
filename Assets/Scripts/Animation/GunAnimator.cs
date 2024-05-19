@@ -12,5 +12,5 @@ public class GunAnimator : HeartsDieEventHandler
         SetFallingParameter();
 
     private void SetFallingParameter() =>
-        _animator.SetTrigger(GunAnimationParams.BirdDied);
+        _animator.SetTrigger(GunAnimatorParams.BirdDied);
 }

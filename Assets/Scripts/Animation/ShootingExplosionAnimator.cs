@@ -23,5 +23,5 @@ public class ShootingExplosionAnimator : MonoBehaviour
         _animator = GetComponent<Animator>();
 
     private void SetTrigger() =>
-        _animator.SetTrigger(ShootingExplosionAnimationParams.Shooted);
+        _animator.Play(ShootingExplosionAnimatorStates.Explode);
 }

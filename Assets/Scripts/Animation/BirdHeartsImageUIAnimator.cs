@@ -27,8 +27,8 @@ public class BirdHeartsImageUIAnimator : MonoBehaviour
     }
 
     private void SetDamageParameter(int count) =>
-        _animator.SetTrigger(BirdHeartsImageUIAnimationParams.Damaged);
+        _animator.SetTrigger(BirdHeartsImageUIAnimatorParams.Damaged);
 
     private void SetDieParameter() =>
-        _animator.SetTrigger(BirdHeartsImageUIAnimationParams.Died);
+        _animator.SetTrigger(BirdHeartsImageUIAnimatorParams.Died);
 }
