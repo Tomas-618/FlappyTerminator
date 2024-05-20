@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Fabric<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Fabric<T> : MonoBehaviour where T : MonoBehaviour
 {
     [SerializeField] private T _entity;
     [SerializeField] private Transform _parent;
