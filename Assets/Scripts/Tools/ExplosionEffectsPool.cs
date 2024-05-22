@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Pool;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosition
 {
@@ -23,9 +24,9 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
         foreach (Explosion entity in _entities.AllEntities)
             entity.LifeTimeEnded += _entities.PutInEntity;
 
-        _entities.PutIn += entity => entity.gameObject.SetActive(false);
-        _entities.PutOut += entity => entity.gameObject.SetActive(true);
-        _entities.Removed += entity => Destroy(entity.gameObject);
+        _entities.PutIn += PutIn;
+        _entities.PutOut += PutOut;
+        _entities.Removed += Remove;
     }
 
     protected override void OnDisable()
@@ -35,9 +36,9 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
         foreach (Explosion entity in _entities.AllEntities)
             entity.LifeTimeEnded -= _entities.PutInEntity;
 
-        _entities.PutIn -= entity => entity.gameObject.SetActive(false);
-        _entities.PutOut -= entity => entity.gameObject.SetActive(true);
-        _entities.Removed -= entity => Destroy(entity.gameObject);
+        _entities.PutIn -= PutIn;
+        _entities.PutOut -= PutOut;
+        _entities.Removed -= Remove;
     }
 
     public void PutOutInPosition(in Vector2 point)
@@ -57,6 +58,15 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
         else
             Clear();
     }
+
+    private void PutIn(Explosion entity) =>
+        entity.gameObject.SetActive(false);
+
+    private void PutOut(Explosion entity) =>
+        entity.gameObject.SetActive(true);
+
+    private void Remove(Explosion entity) =>
+        Destroy(entity.gameObject);
 
     private void ClearWithDelay(in float delay)
     {

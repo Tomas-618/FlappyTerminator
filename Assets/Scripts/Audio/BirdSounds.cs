@@ -40,6 +40,7 @@ public class BirdSounds : HeartsDieEventHandler
             return;
 
         _moverEvents.Value.Fluttered -= PlayOnFlutter;
+        _heartsEvents.Value.Damaged -= PlayOnTakingDamage;
     }
 
     private void Start() =>

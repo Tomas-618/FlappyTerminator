@@ -16,7 +16,7 @@ public class ShootingExplosionAnimator : MonoBehaviour
         if (_gunEvents.Value == null)
             return;
 
-        _gunEvents.Value.Shooted += SetTrigger;
+        _gunEvents.Value.Shooted -= SetTrigger;
     }
 
     private void Start() =>

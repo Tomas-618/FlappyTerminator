@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable
         foreach (Bullet bullet in _pool.AllEntities)
             bullet.Handler.Hitted += _pool.PutInEntity;
 
-        _pool.PutIn += bullet => bullet.gameObject.SetActive(false);
+        _pool.PutIn += PutInPool;
         _pool.PutOut += ReleaseBullet;
         _pool.Removed += DestroyBullets;
     }
@@ -35,7 +35,7 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable
         foreach (Bullet bullet in _pool.AllEntities)
             bullet.Handler.Hitted -= _pool.PutInEntity;
 
-        _pool.PutIn -= bullet => bullet.gameObject.SetActive(false);
+        _pool.PutIn -= PutInPool;
         _pool.PutOut -= ReleaseBullet;
         _pool.Removed -= DestroyBullets;
     }
@@ -57,6 +57,9 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable
         _coroutine = StartCoroutine(WaitBeforeShoot(_shootingDelay));
         Shooted?.Invoke();
     }
+
+    private void PutInPool(Bullet bullet) =>
+        bullet.gameObject.SetActive(false);
 
     private void DestroyBullets(Bullet bullet)
     {
