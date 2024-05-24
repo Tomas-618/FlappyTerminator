@@ -30,6 +30,7 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
 
     protected override void OnDisable()
     {
+        _entities.PutInAllNonstoredEntities();
         base.OnDisable();
 
         foreach (Explosion entity in _entities.AllEntities)

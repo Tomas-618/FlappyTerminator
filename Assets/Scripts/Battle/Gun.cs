@@ -32,6 +32,8 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable
 
     private void OnDisable()
     {
+        _pool.PutInAllNonstoredEntities();
+
         foreach (Bullet bullet in _pool.AllEntities)
             bullet.Handler.Hitted -= _pool.PutInEntity;
 
