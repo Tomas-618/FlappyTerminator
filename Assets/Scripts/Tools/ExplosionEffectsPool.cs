@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using Pool;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosition
 {
