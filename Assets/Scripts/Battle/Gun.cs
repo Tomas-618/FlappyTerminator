@@ -60,22 +60,33 @@ public class Gun : MonoBehaviour, IReadOnlyGunEvents, IShootable, IInitializable
         Shooted?.Invoke();
     }
 
-    private void PutInPool(Bullet bullet) =>
-        bullet.gameObject.SetActive(false);
-
-    private void DestroyBullets(Bullet bullet)
+    private void PutInPool(Bullet bullet)
     {
-        if (bullet.gameObject.activeSelf)
-            bullet.Explode();
+        if (bullet == null)
+            return;
 
-        Destroy(bullet.gameObject);
+        bullet.gameObject.SetActive(false);
     }
 
     private void ReleaseBullet(Bullet bullet)
     {
+        if (bullet == null)
+            return;
+
         bullet.transform.position = _muzzle.position;
         bullet.gameObject.SetActive(true);
         bullet.SetDirection(_direction);
+    }
+
+    private void DestroyBullets(Bullet bullet)
+    {
+        if (bullet == null)
+            return;
+
+        if (bullet.gameObject.activeSelf)
+            bullet.Explode();
+
+        Destroy(bullet.gameObject);
     }
 
     private IEnumerator WaitBeforeShoot(float delay)

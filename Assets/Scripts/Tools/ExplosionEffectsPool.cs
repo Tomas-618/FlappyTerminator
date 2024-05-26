@@ -59,14 +59,29 @@ public class ExplosionEffectsPool : HeartsDieEventHandler, ICanOnlyPutOutInPosit
             Clear();
     }
 
-    private void PutIn(Explosion entity) =>
+    private void PutIn(Explosion entity)
+    {
+        if (entity == null)
+            return;
+
         entity.gameObject.SetActive(false);
+    }
 
-    private void PutOut(Explosion entity) =>
+    private void PutOut(Explosion entity)
+    {
+        if (entity == null)
+            return;
+
         entity.gameObject.SetActive(true);
+    }
 
-    private void Remove(Explosion entity) =>
+    private void Remove(Explosion entity)
+    {
+        if (entity == null)
+            return;
+
         Destroy(entity.gameObject);
+    }
 
     private void ClearWithDelay(in float delay)
     {
